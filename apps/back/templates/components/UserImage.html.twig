@@ -1,0 +1,20 @@
+{% props user, border = "none" %}
+
+{% set style = cva({
+    base: 'user-image',
+    variants: {
+        border: {
+            none: 'user-image--no-border',
+            always: '',
+            mobile: 'user-image--mobile-border',
+        }
+    }
+}) %}
+
+<span class="{{ style.apply({border}) }}">
+    {% if user.image is defined %}
+        <img src="{{ user.image }}" alt="{{ user.name }}">
+    {% elseif user.initials is defined %}
+        {{ user.initials }}
+    {% endif %}
+</span>

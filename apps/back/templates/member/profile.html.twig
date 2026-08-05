@@ -1,0 +1,21 @@
+{{ component('Participant', {participant: current_member, profile: true}) }}
+<div>
+    {{ component('Button', {
+        text: 'action.edit'|trans,
+        modalTargetId: 'memberEditModal',
+        size: 'large',
+        variant: 'secondary',
+    }) }}
+    {{ component('Button', {
+        text: 'action.logout'|trans,
+        path: path('member.logout'),
+        size: 'large',
+        danger: true,
+    }) }}
+</div>
+{{ component('Modal', {
+    id: 'memberEditModal',
+    title: 'member.edit'|trans,
+    template: 'member/edit.html.twig',
+    parameters: {form: member.form}
+}) }}

@@ -1,0 +1,28 @@
+{% props participant, profile = false, compression = "none" %}
+
+{% set style = cva({
+    base: 'participant',
+    variants: {
+        profile: {
+            true: 'participant--profile',
+        },
+        compression: {
+            none: '',
+            always: 'participant--compressed',
+            mobile: 'participant--mobile-compressed',
+        }
+    }
+}) %}
+
+<div class="{{ style.apply({profile, compression}) }}">
+    {{ component('UserImage', {user: participant, border: compression}) }}
+    <span class="participant__name">{{ participant.name }}</span>
+    {% if profile %}
+        {% if participant.email is defined %}
+            <span class="participant__email">{{ participant.email }}</span>
+        {% endif %}
+        {% if participant.member.email is defined %}
+            <span class="participant__email">{{ participant.member.email }}</span>
+        {% endif %}
+    {% endif %}
+</div>

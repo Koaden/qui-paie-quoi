@@ -1,0 +1,12 @@
+{% props expense %}
+
+<a href="{{ path('expense.show', { id: expense.id }) }}" class="expense expense--item">
+    {{ component('Price', { amount: expense.amount, signed: false }) }}
+    <div class="expense__content">
+        <span class="expense__title">{{ expense.title }}</span>
+        {{ component('Participants', {participants: expense.beneficiaries}) }}
+        <span class="expense__date">
+            {{ component('Date', { date: expense.date }) }}
+        </span>
+    </div>
+</a>

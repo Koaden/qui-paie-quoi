@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- {{ 'group.mine'|trans }}{% endblock %}
+
+{% block main %}
+    <div class="groups">
+        <h1>{{ 'home.welcome_user'|trans({'%name%': member.current.name}) }}</h1>
+        <p>{{ 'home.message'|trans }}</p>
+        {% if groups is not empty %}
+            <div class="groups__action">
+
+                {{ form_start(joinForm) }}
+                    <div class="field">
+                        {{ form_widget(joinForm.code) }}
+                    </div>
+                    {{ component('Button', {
+                        text: 'group.join'|trans,
+                        submit: true,
+                        size: 'large'
+                    }) }}
+                {{ form_end(joinForm) }}
+                {{ component('Button', {
+                    path: path('group.add'),
+                    icon: 'plus',
+                    text: 'group.add'|trans,
+                    size: 'large'
+                }) }}
+            </div>
+            <div class="groups__items">
+                {% for group in groups %}
+                    <a class="groups__item" href="{{ path('group.show', {id: group.id}) }}">
+                        <span>{{ group.name }}</span>
+                        <div>
+                            {{ component('Price', { amount: group.total, signed: false }) }}
+                            {{ component('Participants', {participants: group.participants, compression: enum('Infrastructure\\Twig\\Enum\\ParticipantCompressionEnum').ALWAYS}) }}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty">
+                {{ include('icons/info.svg') }}
+                <span>{{ 'group.empty_title'|trans }}</span>
+                <p>{{ 'group.empty_message'|trans }}</p>
+                <div class="groups__action">
+                    {{ form_start(joinForm, { 'action': path('group.join') }) }}
+                        <div class="field">
+                            {{ form_widget(joinForm.code) }}
+                        </div>
+                        {{ component('Button', {
+                            text: 'group.join'|trans,
+                            submit: true,
+                            size: 'large'
+                        }) }}
+                    {{ form_end(joinForm) }}
+                    {{ component('Button', {
+                        path: path('group.add'),
+                        text: 'group.add_first'|trans,
+                        variant: 'secondary',
+                        size: 'large'
+                    }) }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.groups__action');
+
+    if (!section) {
+        return;
+    }
+
+    const input = section.querySelector('input[type="text"]');
+    const submitBtn = section.querySelector('button[type="submit"]');
+    const normalBtn = section.querySelector('a');
+
+    if (!input || !submitBtn || !normalBtn) {
+        return;
+    }
+
+    const updateButtons = () => {
+        const hasValue = input.value.trim().length > 0;
+        console.log(hasValue)
+        if (hasValue) {
+            normalBtn.classList.add('hidden');
+            submitBtn.classList.remove('hidden');
+        } else {
+            submitBtn.classList.add('hidden');
+            normalBtn.classList.remove('hidden');
+        }
+    };
+
+    input.addEventListener('input', updateButtons);
+
+    updateButtons();
+});
+</script>
+
+
+{% endblock %}
+

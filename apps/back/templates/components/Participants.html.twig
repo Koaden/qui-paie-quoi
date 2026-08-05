@@ -1,0 +1,30 @@
+{% set tag = this.hasModal() ? 'button' : 'div' %}
+{% set attributes = {class: (this.hasModal() ? 'btn ' : '') ~ this.getContainerClass(),} %}
+
+{% if this.hasModal() %}
+    {% set attributes = attributes|merge({'data-modal-open': 'participantsModal'}) %}
+{% endif %}
+
+<{{ tag }}{% for name, value in attributes %} {{ name }}="{{ value }}"{% endfor %}>
+    {% for participant in this.getVisibleParticipants() %}
+        {{ component('Participant', {
+            participant: participant,
+            compression: this.getCompressionMode()
+        }) }}
+    {% endfor %}
+
+    {% if this.getExtraCount() > 0 %}
+        <div class="user-image user-image--indicator">
+            +{{ this.getExtraCount() }}
+        </div>
+    {% endif %}
+</{{ tag }}>
+
+{% if this.hasModal() %}
+    {{ component('Modal', {
+        id: 'participantsModal',
+        title: 'participant.plural'|trans,
+        template: this.template,
+        parameters: {participants: participants, group: group}
+    }) }}
+{% endif %}

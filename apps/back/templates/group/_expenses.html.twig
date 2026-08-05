@@ -1,0 +1,29 @@
+{% if group.expenses is not empty %}
+    <div class="group__expenses">
+        {% if is_granted('ADD_EXPENSE', group) %}
+            <div class="group__add--expense">
+                {{ component('Button', {
+                    path: path('expense.add', { groupId: group.id }),
+                    icon: 'plus',
+                    text: 'expense.add'|trans,
+                    short: 'expense.singular'|trans,
+                    size: 'large'
+                }) }}
+            </div>
+        {% endif %}
+        {% for expense in group.expenses %}
+            {{ component('Expense', {expense: expense}) }}
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty">
+        {{ include('icons/info.svg') }}
+        <span>{{ 'expense.empty_title'|trans }}</span>
+        <p>{{ 'expense.empty_message'|trans }}</p>
+        {{ component('Button', {
+            path: path('expense.add', { groupId: group.id }),
+            text: 'expense.add_first'|trans,
+            variant: 'secondary'
+        }) }}
+    </div>
+{% endif %}

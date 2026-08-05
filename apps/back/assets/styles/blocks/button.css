@@ -1,0 +1,75 @@
+.btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    border-radius: 24px;
+    justify-content: center;
+}
+.btn--primary {
+    background-color: var(--primary-950);
+}
+.btn--secondary {
+    background-color: var(--white);
+    color: var(--primary-950);
+    border: 2px solid var(--primary-950);
+}
+.btn--tertiary {
+    color: var(--primary-50);
+    padding: 0;
+}
+.btn--danger {
+    background-color: var(--secondary-400);
+}
+.btn--m {
+    padding: 8px 16px;
+    gap: 6px;
+}
+.btn--s {
+    padding: 6px 14px;
+    gap: 4px;
+}
+
+.btn > span {
+    font: var(--title-m);
+}
+.btn--m > span, .btn--s > span {
+    font: var(--title-s);
+}
+.btn__text--full {
+    display: none;
+}
+@media (min-width: 768px) {
+    .btn__text--full {
+        display: inline;
+    }
+    .btn__text--short {
+        display: none;
+    }
+}
+.btn > svg {
+    height: 16px;
+    width: auto;
+}
+.btn--desktop {
+    display: none;
+}
+.btn--mobile {
+    display: flex;
+}
+.btn--desktop.btn--mobile {
+    display: flex !important;
+}
+@media (min-width: 768px) {
+    .btn--desktop {
+        display: flex;
+    }
+    .btn--mobile {
+        display: none;
+    }
+}

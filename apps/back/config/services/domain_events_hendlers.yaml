@@ -1,0 +1,9 @@
+---
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Application\DomainEventsHandler\:
+    resource: '%kernel.project_dir%/src/Application/DomainEventsHandler/**.php'

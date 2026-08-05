@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- {{ group.name }}{% endblock %}
+
+{% block main %}
+    {{ component('Breadcrumb', { back: 'action.back'|trans, items: [
+        {
+            title: group.name,
+            isCurrent: true
+        }
+    ] }) }}
+    <div class="group">
+        <div class="group__header">
+            <h1>{{ group.name }}</h1>
+            <p>{{ group.description }}</p>
+            <div class="group__participants">
+                {% if is_granted('ADD_PARTICIPANT', group) %}
+                    {{ component('Button', {
+                        icon: 'plus',
+                        text: 'participant.singular'|trans,
+                        modalTargetId: 'participantModal',
+                        size: 'large'
+                    }) }}
+                {% endif %}
+                {{ component('Participants', {participants: group.participants, group: group, template: 'participant/list.html.twig'}) }}
+            </div>
+        </div>
+        <div class="group__infos">
+            <div class="info">
+                {{ include('icons/info.svg') }}
+                <div class="info__content">
+                    <span class="info__title">{{ 'common.total'|trans }}</span>
+                    {{ component('Price', { amount: group.total, signed: false }) }}
+                </div>
+            </div>
+            <div class="info">
+                {{ include('icons/star.svg') }}
+                <div class="info__content">
+                    <span class="info__title">{{ 'info.created_by'|trans }}</span>
+                    <span class="info__content">
+                        {{ component('Participant', {participant: group.owner.participant}) }}
+                    </span>
+                </div>
+            </div>
+        </div>
+        {{ component('Tab', { items: [
+            {
+                title: 'expense.plural'|trans,
+                content: { template: 'group/_expenses.html.twig', parameters: { group: group } },
+                indicator: group.getNumberOfExpenses,
+                isCurrent: true
+            },
+            {
+                title: 'group.balance'|trans,
+                content: { template: 'group/_balance.html.twig', parameters: { group: group } }
+            }
+        ] }) }}
+
+    </div>
+    {{ component('Modal', {
+        id: 'participantModal',
+        title: 'participant.new'|trans,
+        template: 'participant/add.html.twig',
+        parameters: {form: participantForm, id: group.id}
+    }) }}
+    {% for participantId, form in participantEditForms %}
+        {{ component('Modal', {
+            id: 'participantEditModal'~ participantId,
+            title: 'participant.edit'|trans,
+            template: 'participant/edit.html.twig',
+            parameters: {form: form, groupId: group.id, id: participantId}
+        }) }}
+    {% endfor %}
+{% endblock %}

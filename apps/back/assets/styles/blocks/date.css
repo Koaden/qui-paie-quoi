@@ -1,0 +1,8 @@
+.date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    color: var(--secondary-400);
+    font: var(--text-m);
+}

@@ -1,0 +1,10 @@
+beneficiary:
+    min: "Please select at least one beneficiary."
+
+amount:
+    positive: "Please enter a positive amount."
+    invalid: "Please enter a valid amount (e.g., 10.00)."
+
+name:
+    max: "The name must not exceed %limit% characters."
+    min: "The name must contain at least %limit% characters."

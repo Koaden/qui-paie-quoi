@@ -1,0 +1,22 @@
+<header class="header">
+    <div class="header__content">
+        <a class="header__brand" href="{{ member.current ? path('group.index') : path('homepage.index') }}">Qui paie quoi ?</a>
+        <div>
+            {{ component('Language')}}
+            {% if member.current %}
+                <button class="btn btn--tertiary" data-modal-open="ProfileModal">
+                    <div class="header__member-name">{{ member.current.name }}</div>
+                    {{ component('UserImage', {user: member.current.participant, border: 'mobile'}) }}
+                </button>
+            {% endif %}
+        </div>
+    </div>
+</header>
+{% if member.current %}
+{{ component('Modal', {
+    id: 'ProfileModal',
+    template: 'member/profile.html.twig',
+    parameters: {current_member: member.current},
+    profile: true,
+}) }}
+{% endif %}

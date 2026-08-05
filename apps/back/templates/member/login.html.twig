@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% set show_header = false %}
+
+{% block main %}
+<div class="app-gate">
+    {{ form_start(form) }}
+        <div>
+            <h1>{{ "member.form.login" |trans }}</h1>
+            {{ component('Language')}}
+        </div>
+        {{ component('Field', { field: form._username }) }}
+        {{ component('Field', { field: form._password }) }}
+        <div class="app-gate__actions">
+            {{ component('Button', {
+                submit: true,
+                text: 'action.login'|trans,
+                size: 'large',
+                danger: true,
+            }) }}
+            <a href="{{ path('member.register') }}">{{ "member.form.no_account_yet" |trans }}</a>
+        </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

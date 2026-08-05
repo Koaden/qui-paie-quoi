@@ -1,0 +1,49 @@
+.breadcrumb {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.breadcrumb ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    width: fit-content;
+    border-bottom: 2px solid var(--secondary-200);
+}
+.breadcrumb a, .breadcrumb span{
+    font: var(--text-l);
+    color: var(--primary-950);
+    padding: 10px;
+    text-wrap: nowrap;
+}
+.breadcrumb span, .breadcrumb__back a{
+    font: var(--title-l);
+    border-bottom: 4px solid var(--primary-950);
+}
+.breadcrumb li:not(:first-child) a,
+.breadcrumb li:not(:first-child) span {
+    background-image: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.13174 4.63174C7.33513 4.42834 7.66491 4.42834 7.86831 4.63174L12.8683 9.63174C13.0717 9.83513 13.0717 10.1649 12.8683 10.3683L7.86831 15.3683C7.66491 15.5717 7.33513 15.5717 7.13174 15.3683C6.92834 15.1649 6.92834 14.8351 7.13174 14.6317L11.7635 10L7.13174 5.36831C6.92834 5.16491 6.92834 4.83513 7.13174 4.63174Z" fill="%23163262"/></svg>');
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: left center;
+    padding-left: 30px;
+}
+.breadcrumb__back a{
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.8683 4.63155C13.0717 4.83495 13.0717 5.16472 12.8683 5.36812L8.23657 9.99984L12.8683 14.6316C13.0717 14.8349 13.0717 15.1647 12.8683 15.3681C12.6649 15.5715 12.3351 15.5715 12.1317 15.3681L7.13172 10.3681C6.92832 10.1647 6.92832 9.83495 7.13172 9.63155L12.1317 4.63155C12.3351 4.42815 12.6649 4.42815 12.8683 4.63155Z' fill='%23163262'/%3E%3C/svg%3E") !important;
+}
+.breadcrumb ul li:not(.breadcrumb__back) {
+    display: none;
+}
+@media (min-width: 768px) {
+    .breadcrumb ul li.breadcrumb__back {
+        display: none;
+    }
+    .breadcrumb ul li:not(.breadcrumb__back) {
+        display: block;
+    }
+}
+

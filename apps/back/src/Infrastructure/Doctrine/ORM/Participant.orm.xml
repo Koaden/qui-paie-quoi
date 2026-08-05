@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity
+        name="Domain\Model\Participant"
+        repository-class="Infrastructure\Doctrine\Repository\ParticipantRepository"
+        table="participant"
+    >
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="name" column="name" type="string" length="50" nullable="false" unique="false" />
+
+        <many-to-many
+            field="expenses"
+            target-entity="Domain\Model\Expense"
+            mapped-by="beneficiaries"/>
+
+        <many-to-many
+            field="groups"
+            target-entity="Domain\Model\Group"
+            mapped-by="participants"/>
+
+        <one-to-one
+            field="member"
+            target-entity="Domain\Model\Member"
+            mapped-by="participant"/>
+
+    </entity>
+
+</doctrine-mapping>

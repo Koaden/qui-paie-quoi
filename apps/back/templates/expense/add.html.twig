@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- {{ 'expense.new'|trans }}{% endblock %}
+
+{% block main %}
+    {{ component('Breadcrumb', { back: 'action.cancel'|trans, items: [
+        {
+            title: group.name,
+            url: path('group.show', {id: group.id})
+        },
+        {
+            title: expense is defined ? expense.title : 'expense.new'|trans,
+            isCurrent: true
+        }
+    ] }) }}
+    <div class="form">
+    {{ form_start(form) }}
+        <div class="form__main">
+            <div class="form__section form__section--amount">
+                {{ component('Field', { field: form.amount }) }}
+                <span>€</span>
+            </div>
+            <div class="form__section">
+                {{ component('Field', { field: form.title }) }}
+                {{ component('Field', { field: form.payer }) }}
+                {{ component('Field', { field: form.date }) }}
+                {{ component('Button', {
+                    text: buttonText,
+                    submit: true,
+                    mobile: false,
+                    size: 'large'
+                }) }}
+            </div>
+        </div>
+        <div class="form__section form__section--participants">
+            {% if is_granted('ADD_PARTICIPANT', group) %}
+                {{ component('Button', {
+                    icon: 'plus',
+                    text: 'beneficiary.singular'|trans,
+                    modalTargetId: 'participantModal',
+                    variant: 'secondary'
+                }) }}
+            {% endif %}
+            <div class="field">
+                {{ form_errors(form.beneficiaries) }}
+                {% for beneficiaryField in form.beneficiaries %}
+                    <div class="field field--checkbox">
+                        {{ form_widget(beneficiaryField) }}
+                        {% set participant = group.participants[loop.index0] %}
+                        {{ component('Participant', { participant: participant}) }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="button" class="btn field--select">{{ "participant.select_all"|trans }}</button>
+            <button type="button" class="btn field--select hidden">{{ "participant.unselect_all"|trans }}</button>
+        </div>
+        {{ component('Button', {
+            text: buttonText,
+            submit: true,
+            desktop: false,
+            size: 'large'
+        }) }}
+        {{ form_end(form) }}
+    </div>
+    {{ component('Modal', {
+        id: 'participantModal',
+        title: 'participant.new'|trans,
+        template: 'participant/add.html.twig',
+        parameters: {form: participantForm, id: group.id}
+    }) }}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.form__section--participants');
+
+    if (!section) {
+        return;
+    }
+
+    const buttons = section.querySelectorAll('.field--select');
+    const selectBtn = buttons[0];
+    const unselectBtn = buttons[1];
+
+    const checkboxes = section.querySelectorAll('input[type="checkbox"]');
+
+    const updateButtons = () => {
+        const allChecked = [...checkboxes].every(cb => cb.checked);
+
+        if (allChecked && checkboxes.length > 0) {
+            selectBtn.classList.add('hidden');
+            unselectBtn.classList.remove('hidden');
+        } else {
+            unselectBtn.classList.add('hidden');
+            selectBtn.classList.remove('hidden');
+        }
+    };
+
+    const selectAll = () => {
+        checkboxes.forEach(cb => cb.checked = true);
+        updateButtons();
+    };
+
+    const unselectAll = () => {
+        checkboxes.forEach(cb => cb.checked = false);
+        updateButtons();
+    };
+
+    selectBtn.addEventListener('click', selectAll);
+    unselectBtn.addEventListener('click', unselectAll);
+
+    checkboxes.forEach(cb => cb.addEventListener('change', updateButtons));
+
+    updateButtons();
+});
+</script>
+{% endblock %}

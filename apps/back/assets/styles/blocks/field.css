@@ -1,0 +1,58 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+.field--checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.field--select {
+    margin-top: 5px;
+    border-radius: 0;
+    color: var(--primary-950);
+    font: var(--title-m);
+    border-top: 3px solid var(--primary-950);
+}
+.field__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.field__label {
+    font: var(--text-m);
+}
+.field__required {
+    font: var(--title-l);
+    color: var(--secondary-700);
+}
+.field > input,select,textarea {
+    padding: 8px 16px;
+    font: var(--text-m);
+    border: 2px solid var(--grey-200);
+    border-radius: 25px;
+    color: var(--grey-400);
+    background-color: var(--white);
+    resize: vertical;
+    min-height: 20px;
+    max-height: 50vh;
+}
+.field > select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.152549 0.152549C0.355947 -0.0508495 0.68572 -0.0508495 0.889118 0.152549L5.52083 4.78426L10.1525 0.152549C10.3559 -0.0508495 10.6857 -0.0508495 10.8891 0.152549C11.0925 0.355947 11.0925 0.68572 10.8891 0.889118L5.88912 5.88912C5.68572 6.09252 5.35595 6.09252 5.15255 5.88912L0.152549 0.889118C-0.0508495 0.68572 -0.0508495 0.355947 0.152549 0.152549Z' fill='%23525E68'/%3E%3C/svg%3E");    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 48px;
+    cursor: pointer;
+}
+.field > ul {
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding: 0 0 0 16px;
+    color: var(--secondary-700);
+    font: var(--title-s);
+}

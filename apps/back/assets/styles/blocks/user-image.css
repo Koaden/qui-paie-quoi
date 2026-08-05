@@ -1,0 +1,23 @@
+.user-image {
+    background-color: var(--secondary-400);
+    border-radius: 50%;
+    min-width: 35px;
+    min-height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font: var(--title-m);
+    border: 2.5px solid var(--primary-50);
+}
+.user-image--no-border {
+    border: none;
+}
+.user-image--indicator {
+    background-color: var(--primary-950);
+}
+@media (min-width: 768px) {
+    .user-image--mobile-border {
+        border: none;
+    }
+}

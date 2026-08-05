@@ -1,0 +1,9 @@
+---
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Infrastructure\Symfony\Security\PasswordHasher:
+        arguments:
+            $passwordHasher: '@security.user_password_hasher'

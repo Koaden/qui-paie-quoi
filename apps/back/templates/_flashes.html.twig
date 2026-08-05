@@ -1,0 +1,24 @@
+{% if app.flashes is defined %}
+    <div class="toasts">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="toast toast--{{ label }}">
+                    <span class="toast__message">{{ message|trans }}</span>
+                    <button type="button" class="btn toast__close">{{ include('icons/trash.svg') }}</button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.toast__close').forEach(button => {
+                button.addEventListener('click', e => {
+                    const toast = e.currentTarget.closest('.toast');
+                    if (toast) {
+                        toast.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+{% endif %}

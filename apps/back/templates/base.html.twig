@@ -1,0 +1,24 @@
+{% set show_header = show_header is defined ? show_header : true %}
+<!DOCTYPE html>
+<html lang="{{ app.locale }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QuiPaieQuoi {% block title %}{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        {% if show_header %}
+            {% include 'partials/_header.html.twig' %}
+            <main>
+        {% endif %}
+                {% block main %}{% endblock %}
+                {{ include('_flashes.html.twig') }}
+        {% if show_header %}
+            </main>
+        {% endif %}
+    </body>
+</html>

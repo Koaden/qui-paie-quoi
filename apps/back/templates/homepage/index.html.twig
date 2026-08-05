@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- {{ 'home.title'|trans }}{% endblock %}
+
+{% block main %}
+<div class="landing">
+    <div class="landing__banner">
+        <span>{{ 'home.training_banner'|trans }}</span>
+    </div>
+
+    <section class="landing__hero">
+        <div class="landing__container">
+            <h1>{{ 'home.welcome'|trans }}</h1>
+            <p class="landing__hero-text">{{ 'home.presentation'|trans }}</p>
+            <div class="landing__hero-actions">
+                {% if member.current %}
+                    {{ component('Button', {
+                        path: path('group.index'),
+                        text: 'home.cta_groups'|trans,
+                        size: 'large'
+                    }) }}
+                {% else %}
+                    {{ component('Button', {
+                        path: path('member.login'),
+                        text: 'home.cta_login'|trans,
+                        size: 'large'
+                    }) }}
+                    {{ component('Button', {
+                        path: path('member.register'),
+                        text: 'home.cta_register'|trans,
+                        size: 'large',
+                        variant: 'secondary'
+                    }) }}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <section class="landing__section">
+        <div class="landing__container">
+            <h2>{{ 'home.features_title'|trans }}</h2>
+            <div class="landing__cards">
+                <div class="landing__card">
+                    {{ include('icons/plus.svg') }}
+                    <h3>{{ 'home.feature_1_title'|trans }}</h3>
+                    <p>{{ 'home.feature_1_text'|trans }}</p>
+                </div>
+                <div class="landing__card">
+                    {{ include('icons/agenda.svg') }}
+                    <h3>{{ 'home.feature_2_title'|trans }}</h3>
+                    <p>{{ 'home.feature_2_text'|trans }}</p>
+                </div>
+                <div class="landing__card">
+                    {{ include('icons/star.svg') }}
+                    <h3>{{ 'home.feature_3_title'|trans }}</h3>
+                    <p>{{ 'home.feature_3_text'|trans }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing__section landing__section--dark">
+        <div class="landing__container">
+            <h2>{{ 'home.steps_title'|trans }}</h2>
+            <div class="landing__steps">
+                <div class="landing__step">
+                    <span class="landing__step-number">1</span>
+                    <h3>{{ 'home.step_1_title'|trans }}</h3>
+                    <p>{{ 'home.step_1_text'|trans }}</p>
+                </div>
+                <div class="landing__step">
+                    <span class="landing__step-number">2</span>
+                    <h3>{{ 'home.step_2_title'|trans }}</h3>
+                    <p>{{ 'home.step_2_text'|trans }}</p>
+                </div>
+                <div class="landing__step">
+                    <span class="landing__step-number">3</span>
+                    <h3>{{ 'home.step_3_title'|trans }}</h3>
+                    <p>{{ 'home.step_3_text'|trans }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing__cta">
+        <div class="landing__container">
+            <h2>{{ 'home.cta_title'|trans }}</h2>
+            <p>{{ 'home.cta_text'|trans }}</p>
+            {% if member.current %}
+                {{ component('Button', {
+                    path: path('group.index'),
+                    text: 'home.cta_groups'|trans,
+                    size: 'large',
+                    danger: true
+                }) }}
+            {% else %}
+                {{ component('Button', {
+                    path: path('member.register'),
+                    text: 'home.cta_register'|trans,
+                    size: 'large',
+                    danger: true
+                }) }}
+            {% endif %}
+        </div>
+    </section>
+</div>
+{% endblock %}

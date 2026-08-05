@@ -1,0 +1,22 @@
+
+{{ component('Participant', {participant: participant, profile: true}) }}
+{% if participant_balance(participant, group) > 0 %}
+    <span class="balance__resume">
+        {{ 'debt.should_receive'|trans }} {{ component('Price', { amount: participant_balance(participant, group), signed: false, colored: true }) }}
+    </span>
+{% else %}
+    <span class="balance__resume">
+        {{ 'debt.has_debt_of'|trans }} {{ component('Price', { amount: participant_balance(participant, group), signed: false, colored: true }) }}
+    </span>
+{% endif %}
+<div class="debts">
+    {% for debt in group.debts %}
+        {% if debt.getParticipantAmount(participant) != 0 %}
+            <div class="debt">
+                {{ component('Participant', {participant: debt.debtor}) }}
+                <p>{{ 'debt.owes'|trans }} {{ component('Price', { amount: debt.getParticipantAmount(participant), signed: false, colored: true }) }} {{ 'debt.to'|trans }}</p>
+                {{ component('Participant', {participant: debt.creditor}) }}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

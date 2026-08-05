@@ -1,0 +1,10 @@
+{{ form_start(form, { 'action': path('member.edit') }) }}
+    {{ component('Field', { field: form.name }) }}
+    {{ component('Field', { field: form.email }) }}
+    {{ component('Field', { field: form.password }) }}
+    {{ component('Button', {
+        text: 'action.edit'|trans,
+        submit: true,
+        danger: true,
+    }) }}
+{{ form_end(form) }}

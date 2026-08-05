@@ -1,0 +1,43 @@
+<div class="language-selector" data-current-locale="{{ app.request.locale }}">
+    <button class="language-selector__btn" type="button">
+        {% set languages = {
+            fr: { flag: 'icons/languages/french.svg', label: 'Français' },
+            en: { flag: 'icons/languages/english.svg', label: 'English' }
+        } %}
+
+        {{ include(languages[app.request.locale].flag | default(languages.en.flag)) }}
+    </button>
+
+    <ul class="language-selector__dropdown">
+        {% for locale, lang in languages %}
+            <li>
+                <a href="{{ path(
+                    app.current_route,
+                    app.current_route_parameters|merge({_locale: locale})
+                ) }}">
+                    {{ include(lang.flag) }}
+                    {{ lang.label }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const selector = document.querySelector('.language-selector');
+        if (!selector) return;
+
+        const button = selector.querySelector('.language-selector__btn');
+        const dropdown = selector.querySelector('.language-selector__dropdown');
+
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.style.display =
+                dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', () => {
+            dropdown.style.display = 'none';
+        });
+    });
+</script>

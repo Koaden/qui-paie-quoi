@@ -1,0 +1,132 @@
+participant:
+    singular: "Participant"
+    plural: "Participants"
+    new: "Nouveau participant"
+    edit: "Modification d'un participant"
+    name: "Nom du participant"
+    created: "Participant créé avec succès : %name%"
+    edited: "Participant modifié avec succès : %name%"
+    failed: "Le participant n'a pas pu être créé"
+    doesnt_exist: "Ce participant n'existe pas"
+    select_all: "Tout sélectionner"
+    unselect_all: "Tout désélectionner"
+
+member:
+    form:
+        name: "Nom d'utilisateur"
+        email: "Adresse mail"
+        email_placeholder: "exemple@domaine.com"
+        password: "Mot de passe"
+        password_confirm: "Confirmer le mot de passe"
+        register: "Nouveau compte"
+        login: "Connexion"
+        already_account: "J'ai déjà un compte"
+        no_account_yet: "Je n'ai pas encore de compte"
+    error:
+        password_mismatch: "Les mots de passe ne correspondent pas."
+        email_exists: "Un compte avec cette adresse mail existe déjà."
+        invalid_password: "Mot de passe invalide."
+    created: "Votre compte a bien été créé %name% !"
+    doesnt_exist: "Ce membre n'existe pas"
+    edit: "Modification de mon profil"
+
+expense:
+    singular: "Dépense"
+    plural: "Dépenses"
+    new: "Nouvelle dépense"
+    add: "Ajouter une dépense"
+    add_first: "Ajouter ma première dépense"
+    created: "Dépense créé : %title%"
+    removed: "Dépense supprimée : %title%"
+    edited: "Dépense modifié : %title%"
+    title: "Nom de la dépense"
+    empty_title: "Pas encore de dépense..."
+    empty_message: "Ajoutez une dépense et commencez à partager les coûts !"
+    confirmation: "Êtes-vous sûr de vouloir supprimer cette dépense ? Cette action est irréversible."
+    doesnt_exist: "Cette dépense n'existe pas"
+
+balance:
+    empty_title: "Pas de bilan pour le moment !"
+    empty_message: "Nous ne pouvons pas calculer qui paie quoi tant qu'il n'y a pas encore eu de dépenses."
+    resolved_title: "Les comptes sont bon !"
+    resolved_message: "Personne ne doit d'argent pour le moment."
+
+debt:
+    should_receive: "Doit recevoir"
+    has_debt_of: "A une dette de"
+    owes: "Doit"
+    to: "à"
+
+group:
+    new: "Nouveau groupe"
+    join: "Rejoindre le groupe"
+    name: "Nom du groupe"
+    description: "Description"
+    describe: "Décrivez le groupe ..."
+    mine: "Mes groupes"
+    balance: "Bilan"
+    add: "Créer un groupe"
+    add_first: "Je crée mon premier groupe"
+    empty_title: "Il n'y a pas encore de groupe..."
+    empty_message: "Créez un groupe et commencez à partager vos dépenses !"
+
+invitation:
+    created: "Invitation créé pour %name% ! \nCODE: %code%"
+    removed: "Invitation supprimée avec succèss pour %name%."
+    doesnt_exist: "L'invitation n'existe pas."
+
+action:
+    create: "Créer"
+    add: "Ajouter"
+    delete: "Supprimer"
+    delete_permanently: "Supprimer définitivement"
+    edit: "Modifier"
+    cancel: "Annuler"
+    back: "Retour"
+    register: "Créer mon compte"
+    login: "Me connecter"
+    logout: "Déconnexion"
+    denied: "Action non autorisée"
+
+beneficiary:
+    singular: "Bénéficiaire"
+    plural: "Bénéficiaires"
+
+common:
+    date: "Date"
+    title: "Titre"
+    total: "Total"
+    name: "Nom"
+    amount: "Montant"
+
+info:
+    created_by: "Créé par"
+    added_by: "Ajouté par"
+    paid_by: "Payé par"
+
+home:
+    title: "Qui paie quoi ?"
+    welcome: "Ne demandez plus « qui paie quoi ? »"
+    training_banner: "Projet d'entrainement réalisé lors de mon alternance chez KNP Labs"
+    presentation: "Partagez vos dépenses entre amis, colocataires ou voyageurs. Ajoutez ce que vous avez payé, invitez vos proches et laissez l'application faire les calculs : vous saurez toujours qui doit quoi."
+    cta_login: "Se connecter"
+    cta_register: "Créer un compte"
+    cta_groups: "Voir mes groupes"
+    features_title: "Pensé pour les dépenses partagées"
+    feature_1_title: "Des groupes pour tout"
+    feature_1_text: "Créez un groupe, partagez son code et répartissez vos dépenses du quotidien avec vos amis."
+    feature_2_title: "Des dépenses en quelques clics"
+    feature_2_text: "Indiquez ce que vous avez payé et qui y participe. Chaque montant est réparti équitablement, instantanément."
+    feature_3_title: "Des bilans simples"
+    feature_3_text: "Voyez d'un coup d'œil qui doit quoi et qui doit recevoir. fini les calculs !"
+    steps_title: "Comment ça marche"
+    step_1_title: "Créez un groupe"
+    step_1_text: "Donnez un nom à votre groupe et partagez le code d'invitation avec vos amis."
+    step_2_title: "Ajoutez vos dépenses"
+    step_2_text: "Indiquez ce que vous avez payé et qui y a participé."
+    step_3_title: "Consultez le bilan"
+    step_3_text: "Les soldes sont calculés pour vous. Il ne reste plus qu'à vous régler."
+    cta_title: "Prêt à partager vos dépenses ?"
+    cta_text: "C'est gratuit, rapide et ça fonctionne avec toutes les personnes avec qui vous partagez vos frais."
+    welcome_user: "Bienvenue %name% !"
+    message: "Suis tes groupes et vois en un coup d’œil qui doit quoi. Finis les calculs compliqués, tout est déjà équilibré pour toi."

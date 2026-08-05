@@ -1,0 +1,7 @@
+{% props date %}
+<div class="date">
+    <div class="date__icon">
+        {{ include('icons/agenda.svg') }}
+    </div>
+    <div class="date__content">{{ date|date('d/m/Y') }}</div>
+</div>

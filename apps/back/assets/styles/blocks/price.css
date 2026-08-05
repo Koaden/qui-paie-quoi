@@ -1,0 +1,6 @@
+.price--negative {
+    color: var(--secondary-400);
+}
+.price--positive {
+    color: var(--success-500);
+}

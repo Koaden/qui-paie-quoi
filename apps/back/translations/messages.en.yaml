@@ -1,0 +1,132 @@
+participant:
+    singular: "Participant"
+    plural: "Participants"
+    new: "New participant"
+    edit: "Participant editiion"
+    name: "Participant name"
+    created: "Participant successfully created: %name%"
+    edited: "Participant successfully edited: %name%"
+    failed: "The participant could not be created"
+    doesnt_exist: "This participant doesn't exist"
+    select_all: "Select all"
+    unselect_all: "Unselect all"
+
+member:
+    form:
+        name: "Username"
+        email: "Email address"
+        email_placeholder: "example@domain.com"
+        password: "Password"
+        password_confirm: "Confirm password"
+        register: "New account"
+        login: "Login"
+        already_account: "I already have an account"
+        no_account_yet: "I don't have an account yet"
+    error:
+        password_mismatch: "Passwords do not match."
+        email_exists: "An account with this email address already exists."
+        invalid_password: "Invalid password."
+    created: "Your account has been created successfully %name%!"
+    doesnt_exist: "This member doesn't exist"
+    edit: "Editing my profile"
+
+expense:
+    singular: "Expense"
+    plural: "Expenses"
+    new: "New expense"
+    add: "Add an expense"
+    add_first: "Add my first expense"
+    removed: "Expense deleted: %title%"
+    edited: "Expense edited: %title%"
+    title: "Expense name"
+    created: "Expense added: %title%"
+    empty_title: "No expenses yet..."
+    empty_message: "Add an expense and start sharing costs!"
+    confirmation: "Are you sure you want to delete this expense? This action is irreversible."
+    doesnt_exist: "This expense doesn't exist"
+
+balance:
+    empty_title: "No balance yet!"
+    empty_message: "We can't calculate who pays what until there are expenses."
+    resolved_title: "All settled!"
+    resolved_message: "Nobody owes money at the moment."
+
+debt:
+    should_receive: "Should receive"
+    has_debt_of: "Has a debt of"
+    owes: "Owes"
+    to: "to"
+
+group:
+    new: "New group"
+    join: "Join group"
+    name: "Group name"
+    description: "Description"
+    describe: "Describe the group..."
+    mine: "My groups"
+    balance: "Balance"
+    add: "Create a group"
+    add_first: "Create my first group"
+    empty_title: "No groups yet..."
+    empty_message: "Create a group and start sharing your expenses!"
+
+invitation:
+    created: "Invitation created for %name%! \nCODE: %code%"
+    removed: "Invitation successfully removed for %name%."
+    doesnt_exist: "Invitation doesn't exist."
+
+action:
+    create: "Create"
+    add: "Add"
+    delete: "Delete"
+    delete_permanently: "Delete permanently"
+    edit: "Edit"
+    cancel: "Cancel"
+    back: "Back"
+    register: "Create my account"
+    login: "Login"
+    logout: "Logout"
+    denied: "Action denied"
+
+beneficiary:
+    singular: "Beneficiary"
+    plural: "Beneficiaries"
+
+common:
+    date: "Date"
+    title: "Title"
+    total: "Total"
+    name: "Name"
+    amount: "Amount"
+
+info:
+    created_by: "Created by"
+    added_by: "Added by"
+    paid_by: "Paid by"
+
+home:
+    title: "Who pays what?"
+    welcome: "Never ask “who pays what?” again"
+    training_banner: "Training project made during an apprenticeship at KNP Labs"
+    presentation: "Split expenses with friends, flatmates or travel buddies. Add what you paid, invite your friends, and let the app do the maths. You'll always know who owes what."
+    cta_login: "Log in"
+    cta_register: "Create an account"
+    cta_groups: "See my groups"
+    features_title: "Made for shared expenses"
+    feature_1_title: "Groups for everything"
+    feature_1_text: "Create a group, share its code, and split your everyday expenses with your friends."
+    feature_2_title: "Expenses in a few clicks"
+    feature_2_text: "Add what you paid and who took part. Each amount is split fairly, instantly."
+    feature_3_title: "Clear balances"
+    feature_3_text: "See at a glance who owes what and who should receive. no more maths!"
+    steps_title: "How it works"
+    step_1_title: "Create a group"
+    step_1_text: "Give your group a name and share the joining code with your friends."
+    step_2_title: "Add your expenses"
+    step_2_text: "Tell the app what you paid and who was involved."
+    step_3_title: "Check the balance"
+    step_3_text: "Balances are calculated for you. Just settle up and move on."
+    cta_title: "Ready to share your expenses?"
+    cta_text: "It's free, fast, and works with whoever you share costs with."
+    welcome_user: "Welcome %name%!"
+    message: "Track your groups and see at a glance who owes what. No more complicated calculations, everything is already balanced for you."

@@ -1,0 +1,6 @@
+---
+services:
+    Application\Voter\:
+        resource: '%kernel.project_dir%/src/Application/Voter/*'
+        tags:
+            - { name: security.voter }

@@ -1,0 +1,26 @@
+@import url('_variables.css');
+@import url('_base.css');
+
+@import url('blocks/appgate.css');
+@import url('blocks/balance.css');
+@import url('blocks/breadcrumb.css');
+@import url('blocks/button.css');
+@import url('blocks/date.css');
+@import url('blocks/debt.css');
+@import url('blocks/empty.css');
+@import url('blocks/expense.css');
+@import url('blocks/field.css');
+@import url('blocks/form.css');
+@import url('blocks/group.css');
+@import url('blocks/groups.css');
+@import url('blocks/header.css');
+@import url('blocks/modal.css');
+@import url('blocks/info.css');
+@import url('blocks/language-selector.css');
+@import url('blocks/landing.css');
+@import url('blocks/participant.css');
+@import url('blocks/participants.css');
+@import url('blocks/price.css');
+@import url('blocks/tab.css');
+@import url('blocks/toast.css');
+@import url('blocks/user-image.css');

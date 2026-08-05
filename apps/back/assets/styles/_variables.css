@@ -1,0 +1,28 @@
+:root {
+    --white: #FFF;
+
+    --primary-950: #163262;
+    --primary-50: #EEF8FF;
+
+    --secondary-700: #C80F0D;
+    --secondary-400: #FF6564;
+    --secondary-200: #FFC6C5;
+    --secondary-100: #FFDFDF;
+
+    --success-500: #39B141;
+
+    --grey-400: #7B8B95;
+    --grey-200: #CBD2D6;
+
+    --title-xxl: 700 32px/40px Montserrat, sans-serif;
+    --title-xl: 700 24px/32px Montserrat, sans-serif;
+    --title-l: 600 20px/28px Montserrat, sans-serif;
+    --title-m: 600 16px/24px Montserrat, sans-serif;
+    --title-s: 600 14px/20px Montserrat, sans-serif;
+
+    --text-l: 400 20px/24px Montserrat, sans-serif;
+    --text-m: 400 16px/20px Montserrat, sans-serif;
+    --text-s: 400 14px/18px Montserrat, sans-serif;
+    --text-xs: 400 12px/16px Montserrat, sans-serif;
+
+}

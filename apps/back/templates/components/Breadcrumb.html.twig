@@ -1,0 +1,19 @@
+<nav class="breadcrumb">
+    <ul>
+        <li>
+            <a href="{{ path('group.index') }}">{{ 'group.mine'|trans }}</a>
+        </li>
+        {% for item in items %}
+            <li>
+                {% if item.isCurrent is defined and item.isCurrent %}
+                    <span>{{ item.title }}</span>
+                {% else %}
+                    <a href="{{ item.url is defined ? item.url : '' }}">{{ item.title }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+        <li class="breadcrumb__back">
+            <a href="{{ items|length > 1 and items[items|length - 2].url is defined ? items[items|length - 2].url : path('group.index') }}">{{ back }}</a>
+        </li>
+    </ul>
+</nav>

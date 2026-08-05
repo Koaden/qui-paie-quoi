@@ -1,0 +1,48 @@
+{% props items = [] %}
+<nav class="tab">
+    <ul>
+        {% for item in items %}
+            <li{% if item.isCurrent is defined %} class="is-current"{% endif %}>
+                <button class="btn" data-tab-open={{ item.title }}>
+                    {{ item.title }}
+                    {% if item.indicator is defined %}
+                        <span class="tab__indicator">{{ item.indicator }}</span>
+                    {% endif %}
+                </button>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
+{% for item in items %}
+    <div class="tab__section{{ not item.isCurrent is defined ? ' hidden' : '' }}" id="{{ item.title }}">
+        {{ include(item.content.template, item.content.parameters) }}
+    </div>
+{% endfor %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabButtons = document.querySelectorAll('nav.tab button[data-tab-open]');
+        const sections = document.querySelectorAll('.tab__section');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-tab-open');
+                sections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+
+                tabButtons.forEach(btn => {
+                    const li = btn.closest('li');
+                    if (btn === button) {
+                        li.classList.add('is-current');
+                    } else {
+                        li.classList.remove('is-current');
+                    }
+                });
+            });
+        });
+    });
+</script>

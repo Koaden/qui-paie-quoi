@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- {{ 'group.new'|trans }}{% endblock %}
+
+{% block main %}
+    {{ component('Breadcrumb', { back: 'action.cancel'|trans, items: [
+        {
+            title: 'group.new'|trans,
+            isCurrent: true
+        }
+    ] }) }}
+    <div class="form">
+    {{ form_start(form) }}
+        <div class="form__main form__main--only">
+            <div class="form__section">
+                {{ component('Field', { field: form.name }) }}
+                {{ component('Field', { field: form.description }) }}
+                {{ component('Button', {
+                    text: 'action.create'|trans,
+                    submit: true,
+                    mobile: false,
+                    size: 'large'
+                }) }}
+            </div>
+        </div>
+        {{ component('Button', {
+            text: 'action.create'|trans,
+            submit: true,
+            desktop: false,
+            size: 'large'
+        }) }}
+    {{ form_end(form) }}
+    </div>
+{% endblock %}

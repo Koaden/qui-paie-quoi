@@ -1,0 +1,31 @@
+.participant {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+.participant--profile {
+    flex-direction: column;
+    gap: 15px;
+}
+.participant--profile > .user-image {
+    min-width: 200px;
+    min-height: 200px;
+    font-size: 100px;
+}
+.participant--profile > .participant__name {
+    font: var(--title-xl);
+}
+.participant__name {
+    font: var(--title-m);
+    text-wrap: nowrap;
+}
+.participant--mobile-compressed .participant__name,
+.participant--compressed .participant__name {
+    display: none;
+}
+@media (min-width: 768px) {
+    .participant--mobile-compressed .participant__name {
+        display: block;
+    }
+}

@@ -1,0 +1,13 @@
+{% props field %}
+<div class="field">
+    <div class="field__info">
+        <label class="field__label">{{ form_label(field) }}</label>
+        {% if field.vars.required %}
+            <div class="field__required">
+                    *
+            </div>
+        {% endif %}
+    </div>
+    {{ form_widget(field) }}
+    {{ form_errors(field) }}
+</div>

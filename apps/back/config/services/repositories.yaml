@@ -1,0 +1,28 @@
+---
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+
+    Infrastructure\Doctrine\Repository\:
+      resource: '%kernel.project_dir%/src/Infrastructure/Doctrine/Repository/*'
+      public: false
+
+    Domain\Collection\MemberCollection:
+      alias: Infrastructure\Doctrine\Repository\MemberRepository
+
+    Domain\Collection\GroupCollection:
+      alias: Infrastructure\Doctrine\Repository\GroupRepository
+
+    Domain\Collection\ExpenseCollection:
+      alias: Infrastructure\Doctrine\Repository\ExpenseRepository
+
+    Domain\Collection\ParticipantCollection:
+      alias: Infrastructure\Doctrine\Repository\ParticipantRepository
+
+    Domain\Collection\MembershipCollection:
+      alias: Infrastructure\Doctrine\Repository\MembershipRepository
+
+    Domain\Collection\InvitationCollection:
+      alias: Infrastructure\Doctrine\Repository\InvitationRepository
+

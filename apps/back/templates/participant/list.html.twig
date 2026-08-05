@@ -1,0 +1,37 @@
+<div class="participants--list">
+{% for participant in participants %}
+    <div class="participants__item">
+        <div>
+            {{ component('Participant', {participant: participant}) }}
+            {% if participant.member is not empty %}
+                {{ participant.member.email }}
+            {% endif %}
+        </div>
+        <div>
+            {% if is_granted('INVITE_MEMBER', [participant, group]) %}
+                {% set invitation = group.getInvitationFromParticipant(participant) %}
+                {% if invitation is not empty %}
+                    {{ invitation.code }}
+                    {{ component('Button', {
+                        icon: 'remove-invitation',
+                        path: path('invitation.remove', { id: invitation.id }),
+                        danger: true,
+                    }) }}
+                {% else %}
+                    {{ component('Button', {
+                        icon: 'create-invitation',
+                        path: path('invitation.add', { groupId: group.id, id: participant.id }),
+                    }) }}
+                {% endif %}
+            {% endif %}
+            {% if is_granted('EDIT_PARTICIPANT', [participant, group]) %}
+                {{ component('Button', {
+                    icon: 'edit',
+                    modalTargetId: 'participantEditModal'~ participant.id,
+                    variant: 'secondary',
+                }) }}
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+</div>

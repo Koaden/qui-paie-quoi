@@ -1,0 +1,16 @@
+{% props amount, signed = true, colored = false %}
+<span class="
+        price
+        {% if colored and amount > 0 %}
+        price--positive
+        {% elseif colored and amount < 0 %}
+        price--negative
+        {% endif %}
+    ">
+    {% if signed and amount > 0 %}
+        +
+    {% elseif signed and amount < 0 %}
+        -
+    {% endif %}
+    {{ amount|format_amount }}
+</span>

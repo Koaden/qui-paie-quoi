@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- {{ expense.title }}{% endblock %}
+
+{% block main %}
+    {{ component('Breadcrumb', { back: 'action.back'|trans, items: [
+        {
+            title: expense.group.name,
+            url: path('group.show', {id: expense.group.id})
+        },
+        {
+            title: expense.title,
+            isCurrent: true
+        }
+    ] }) }}
+    <div class="expense">
+        <div class="expense__header">
+            {{ component('Price', { amount: expense.amount, signed: false }) }}
+            <div class="expense__content">
+                <h1>{{ expense.title }}</h1>
+                <span class="expense__date">
+                    {{ component('Date', { date: expense.date}) }}
+                </span>
+                <div class="expense__payer">
+                    <span>{{ 'info.paid_by'|trans }} :</span>
+                    {{ component('Participant', {participant: expense.payer}) }}
+                </div>
+            </div>
+        </div>
+        <div class="expense__beneficiaries">
+            <h2>{{ 'beneficiary.plural'|trans }}</h2>
+            {{ component('Participants', {participants: expense.beneficiaries, compression: enum('Infrastructure\\Twig\\Enum\\ParticipantCompressionEnum').NEVER}) }}
+        </div>
+        <div class="expense__footer">
+            <div class="expense__creator">
+                <span>{{ 'info.added_by'|trans }} :</span>
+                {{ component('Participant', {participant: expense.creator}) }}
+            </div>
+            {% if is_granted('EDIT_EXPENSE', expense) %}
+                <div class="expense__buttons">
+                    {{ component('Button', {
+                        icon: 'edit',
+                        path: path('expense.edit', { id: expense.id }),
+                        text: 'action.edit'|trans,
+                        variant: 'secondary',
+                        size: 'large'
+                    }) }}
+                    {{ component('Button', {
+                        icon: 'trash',
+                        modalTargetId: 'confirmModal',
+                        text: 'action.delete'|trans,
+                        danger: true,
+                        size: 'large'
+                    }) }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% if is_granted('EDIT_EXPENSE', expense) %}
+        {{ component('Modal', {
+            title: 'action.delete'|trans,
+            id: 'confirmModal',
+            template: 'partials/_confirmation.html.twig',
+            parameters: {text: 'expense.confirmation'|trans ,path: path('expense.remove', { id: expense.id }), buttonText: 'action.delete_permanently'|trans}
+        }) }}
+    {% endif %}
+
+{% endblock %}

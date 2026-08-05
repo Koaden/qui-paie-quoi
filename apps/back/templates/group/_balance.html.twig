@@ -1,0 +1,35 @@
+{% if group.debts is not empty %}
+
+    <div class="balance">
+        {% for participant in group.participants %}
+            {% if participant_balance(participant, group) != 0 %}
+                <a class="balance__participant" data-modal-open="{{ participant.id }}">
+                    {{ component('Participant', {participant: participant}) }}
+                    {{ component('Price', { amount: participant_balance(participant, group), colored: true }) }}
+                </a>
+            {% endif %}
+            {{ component('Modal', {
+                id: participant.id,
+                template: 'group/debt.html.twig',
+                parameters: {participant: participant, group: group}
+            }) }}
+        {% endfor %}
+    </div>
+{% elseif group.expenses is not empty %}
+    <div class="empty">
+        {{ include('icons/star.svg') }}
+        <span>{{ 'balance.resolved_title'|trans }}</span>
+        <p>{{ 'balance.resolved_message'|trans }}</p>
+    </div>
+{% else %}
+    <div class="empty">
+        {{ include('icons/info.svg') }}
+        <span>{{ 'balance.empty_title'|trans }}</span>
+        <p>{{ 'balance.empty_message'|trans }}</p>
+        {{ component('Button', {
+            path: path('expense.add', { groupId: group.id }),
+            text: 'expense.add_first'|trans,
+            variant: 'secondary'
+        }) }}
+    </div>
+{% endif %}

@@ -1,0 +1,60 @@
+.app-gate {
+    background: linear-gradient(200deg, var(--secondary-200) 15.86%, var(--primary-50) 85.94%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.app-gate div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.app-gate h1 {
+    color: var(--secondary-200);
+}
+.app-gate a {
+    color: var(--secondary-200);
+    text-decoration: underline;
+}
+.app-gate > form {
+    background-color: var(--primary-950);
+    color: var(--primary-50);
+    padding: 30px 25px;
+    margin: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    min-width: 30%;
+    box-shadow: 0 10px 50px 1px rgba(0, 0, 0, 0.15);
+}
+.app-gate .field__required {
+    color: var(--primary-50);
+}
+.app-gate .field > input, .app-gate .field > ul {
+    color: var(--secondary-400);
+}
+.app-gate__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 50px 20px;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.app-gate__error {
+    color: var(--secondary-400);
+    font: var(--title-m);
+    background-color: color-mix(in srgb, var(--secondary-400) 20%, transparent);
+    padding: 15px;
+    width: 95%;
+    text-align: center;
+    border: 3px solid var(--secondary-400);
+    border-radius: 10px;
+}

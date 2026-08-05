@@ -1,0 +1,32 @@
+.tab ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    box-shadow: inset 0 -2px 0 var(--secondary-200);
+}
+.tab button {
+    font: var(--text-l);
+    color: var(--primary-950);
+    text-wrap: nowrap;
+    border-radius: 0;
+    padding: 10px;
+}
+.tab__indicator {
+    background-color: var(--secondary-200);
+    color: var(--white);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font: var(--title-s) !important;
+}
+.tab .is-current > button {
+    font: var(--title-l);
+    border-bottom: 4px solid var(--primary-950);
+}
+.tab .is-current .tab__indicator {
+    background-color: var(--primary-950);
+}

@@ -1,0 +1,65 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  phpstan:
+    uses: ./.github/workflows/phpstan.yml
+
+  deploy:
+    needs: ci
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get runner public IP
+        id: ip
+        run: |
+          IP=""
+          for url in "https://api.ipify.org" "https://ifconfig.me/ip" "https://icanhazip.com"; do
+            IP=$(curl -fsS --connect-timeout 5 -m 15 "$url" 2>/dev/null | head -n1) && [ -n "$IP" ] && break
+          done
+          [ -n "$IP" ] || { echo "Failed to determine public IP"; exit 1; }
+          echo "ipv4=$IP" >> "$GITHUB_OUTPUT"
+
+      - name: Whitelist runner IP on O2Switch firewall
+        run: |
+          curl -sm 45 \
+            -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}" \
+            "https://${{ secrets.CPANEL_SERVER }}:2083/execute/SshWhitelist/add?address=${{ steps.ip.outputs.ipv4 }}&port=22"
+
+      - name: Install SSH key
+        run: |
+          eval $(ssh-agent -s)
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy via SSH
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            set -e
+            cd ${{ vars.PROD_PATH }}
+            git pull origin main
+            cd apps/back
+            composer install --no-dev --no-interaction --prefer-dist
+            php bin/console doctrine:migrations:migrate --no-interaction
+            php bin/console assets:install
+            php bin/console asset-map:compile
+            php bin/console cache:clear --no-interaction
+          EOF
+
+      - name: Remove runner IP from whitelist
+        if: always()
+        run: |
+          curl -sm 45 \
+            -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}" \
+            "https://${{ secrets.CPANEL_SERVER }}:2083/execute/SshWhitelist/remove?address=${{ steps.ip.outputs.ipv4 }}&port=22&direction=in"
+          curl -sm 45 \
+            -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}" \
+            "https://${{ secrets.CPANEL_SERVER }}:2083/execute/SshWhitelist/remove?address=${{ steps.ip.outputs.ipv4 }}&port=22&direction=out"

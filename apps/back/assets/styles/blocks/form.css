@@ -1,0 +1,80 @@
+.form {
+    width: 100%;
+}
+.form > form{
+    border-radius: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    align-items: stretch;
+    gap: 10px;
+}
+.form__main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.form__main--only {
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+}
+.form__section {
+    background-color: var(--primary-50);
+    color: var(--primary-950);
+    display: flex;
+    flex-direction: column;
+    gap: 10px 15px;
+    padding: 20px;
+    flex: 1;
+}
+.form__section--amount {
+    background-color: var(--secondary-400);
+    color: var(--white);
+    flex-direction: row;
+    align-items: center;
+    flex: 0;
+}
+.form__section--amount > span {
+    font: var(--title-xxl);
+}
+.form__section--amount .field__required, .form__section--amount > .field > ul {
+    color: var(--primary-950);
+}
+.form__section--participants {
+    background-color: var(--secondary-100);
+    align-items: center;
+    padding: 20px 60px;
+    border-radius: 0 0 20px 20px;
+}
+.form__section--participants > .field {
+    max-height: 325px;
+    overflow-y: auto;
+}
+form .btn {
+    align-self: center;
+}
+form button[type="submit"].btn--desktop {
+    margin-top: 10px;
+    align-self: start;
+}
+@media (min-width: 768px) {
+    .form > form {
+        flex-direction: row;
+    }
+    .form__section--participants {
+        border-radius: 0;
+        padding: 20px 40px;
+        min-width: 200px;
+        max-height: none;
+    }
+    .form__main--only {
+        border-radius: 0;
+    }
+}
+@media (min-width: 1024px) {
+    .form__section--participants {
+        min-width: 250px;
+    }
+}

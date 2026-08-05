@@ -1,0 +1,70 @@
+{% props
+    text = null,
+    short = null,
+    submit = false,
+    path = null,
+    danger = false,
+    icon = null,
+    modalTargetId = null,
+    desktop = true,
+    mobile = true,
+    size = 'medium',
+    variant = 'primary'
+%}
+
+{% set style = cva({
+    base: 'btn',
+    variants: {
+        size: {
+            small: 'btn--s',
+            medium: 'btn--m',
+            large: 'btn--l',
+        },
+        variant: {
+            primary: 'btn--primary',
+            secondary: 'btn--secondary',
+            tertiary: 'btn--tertiary',
+        },
+        danger: {
+            true: 'btn--danger'
+        },
+        desktop: {
+            true: 'btn--desktop'
+        },
+        mobile: {
+            true: 'btn--mobile'
+        }
+    },
+    defaultVariants: {
+        size: 'medium',
+        variant: 'primary',
+        danger: false,
+        desktop: true,
+        mobile: true,
+    }
+}) %}
+
+{% if path is not empty %}
+    <a
+        href="{{ path }}"
+{% else %}
+    <button
+        type="{% if submit %}submit{% else %}button{% endif %}"
+{% endif %}
+        class="{{ style.apply({size, variant, danger, desktop, mobile}) }}"
+        {% if modalTargetId is defined %}data-modal-open="{{ modalTargetId }}"{% endif %}
+    >
+    {% if icon is not empty %}
+        {{ include('icons/' ~ icon ~ '.svg') }}
+    {% endif %}
+    {% if text is not empty %}
+        <span class="btn__text{{ short is not empty ? '--full' : '' }}">{{ text }}</span>
+    {% endif %}
+    {% if short is not empty %}
+        <span class="btn__text--short">{{ short }}</span>
+    {% endif %}
+{% if path is not empty %}
+    </a>
+{% else %}
+    </button>
+{% endif %}
