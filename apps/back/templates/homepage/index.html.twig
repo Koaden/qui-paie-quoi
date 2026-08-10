@@ -103,5 +103,11 @@
             {% endif %}
         </div>
     </section>
+
+    <div class="landing__legal">
+        <a href="{{ path('legal.mentions') }}">{{ 'legal.mentions'|trans }}</a>
+        <span class="landing__legal-separator" aria-hidden="true">·</span>
+        <a href="{{ path('legal.privacy') }}">{{ 'legal.policy'|trans }}</a>
+    </div>
 </div>
 {% endblock %}

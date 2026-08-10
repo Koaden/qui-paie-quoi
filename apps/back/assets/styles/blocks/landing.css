@@ -159,6 +159,26 @@ main:has(.landing) {
     max-width: 520px;
 }
 
+.landing__legal {
+    width: 100%;
+    padding: 25px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    background-color: var(--primary-950);
+}
+
+.landing__legal a {
+    color: var(--secondary-200);
+    font: var(--text-s);
+    text-decoration: underline;
+}
+
+.landing__legal-separator {
+    color: var(--grey-400);
+    font: var(--text-s);
+}
+
 @media (min-width: 768px) {
     .landing__container {
         width: 80%;

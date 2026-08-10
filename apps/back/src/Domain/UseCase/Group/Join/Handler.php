@@ -10,8 +10,8 @@ use Domain\Collection\MemberCollection;
 use Domain\Collection\ParticipantCollection;
 use Domain\Enum\GroupRole;
 use Domain\Exception\InvitationDoesntExist;
-use Domain\Exception\MemberDoesntExist;
 use Domain\Exception\MemberAlreadyInThisGroup;
+use Domain\Exception\MemberDoesntExist;
 
 final readonly class Handler
 {

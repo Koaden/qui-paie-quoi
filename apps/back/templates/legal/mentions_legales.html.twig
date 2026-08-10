@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% set show_header = false %}
+
+{% block title %}- {{ 'legal.mentions'|trans }}{% endblock %}
+
+{% block main %}
+    <div class="legal">
+        <h1>{{ 'legal.mentions'|trans }}</h1>
+
+        <section class="legal__section">
+            <h2>{{ 'legal.publisher.title'|trans }}</h2>
+            <p>{{ 'legal.publisher.intro'|trans }}</p>
+            <ul>
+                <li>{{ 'legal.publisher.name_label'|trans }} <strong>Gaël Quéméré</strong></li>
+                <li>{{ 'legal.publisher.email_label'|trans }} <a href="mailto:gael.quemere@ik.me">gael.quemere@ik.me</a></li>
+            </ul>
+        </section>
+
+        <section class="legal__section">
+            <h2>{{ 'legal.hosting.title'|trans }}</h2>
+            <p>{{ 'legal.hosting.intro'|trans }}</p>
+            <ul>
+                <li>{{ 'legal.hosting.host_label'|trans }} <strong>o2switch</strong></li>
+                <li>{{ 'legal.hosting.address_label'|trans }} Chemin des Pardiaux, 63000 Clermont-Ferrand, France</li>
+                <li>{{ 'legal.hosting.phone_label'|trans }} +33 4 44 44 60 40</li>
+                <li>{{ 'legal.hosting.website_label'|trans }} <a href="https://www.o2switch.fr" target="_blank" rel="noopener noreferrer">https://www.o2switch.fr</a></li>
+            </ul>
+        </section>
+
+        <section class="legal__section">
+            <h2>{{ 'legal.copyright.title'|trans }}</h2>
+            <p>{{ 'legal.copyright.content'|trans }}</p>
+        </section>
+    </div>
+{% endblock %}

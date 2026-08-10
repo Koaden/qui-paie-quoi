@@ -7,7 +7,6 @@ namespace Application\Controller\Group;
 use Application\Controller\BaseController;
 use Application\Form\Type\JoinGroupType;
 use Application\MessageBus\CommandBus;
-use Application\MessageBus\QueryBus;
 use Domain\Exception\DomainException;
 use Domain\Model\Group as ModelGroup;
 use Domain\UseCase\Group\Join\Input;

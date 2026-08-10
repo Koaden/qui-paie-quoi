@@ -130,3 +130,53 @@ home:
     cta_text: "C'est gratuit, rapide et ça fonctionne avec toutes les personnes avec qui vous partagez vos frais."
     welcome_user: "Bienvenue %name% !"
     message: "Suis tes groupes et vois en un coup d’œil qui doit quoi. Finis les calculs compliqués, tout est déjà équilibré pour toi."
+
+legal:
+    mentions: "Mentions légales"
+    policy: "Politique de confidentialité"
+    publisher:
+        title: "Éditeur"
+        intro: "Ce site est édité par :"
+        name_label: "Nom :"
+        email_label: "E-mail :"
+    hosting:
+        title: "Hébergement"
+        intro: "Ce site est hébergé par :"
+        host_label: "Hébergeur :"
+        address_label: "Adresse :"
+        phone_label: "Téléphone :"
+        website_label: "Site web :"
+    copyright:
+        title: "Propriété intellectuelle"
+        content: "Le code de cette application est la propriété de KNP Labs, dans le cadre de son programme de formation d’apprentis. KNP Labs en a autorisé l’utilisation et la présentation à des fins de portfolio uniquement. Toute autre utilisation, reproduction ou redistribution est interdite sans l’accord écrit préalable de KNP Labs."
+    privacy:
+        controller:
+            title: "Responsable du traitement"
+            intro: "Ce site est exploité par :"
+            name_label: "Nom :"
+            email_label: "E-mail :"
+        purpose:
+            title: "Finalité du traitement"
+            content: "Ce site est un projet de démonstration présenté dans un portfolio. Les données sont collectées et stockées uniquement dans le but de montrer le fonctionnement du projet. Elles ne sont utilisées à aucune autre fin : aucune exploitation commerciale, aucun partage, aucune vente et aucun transfert à des tiers."
+        data:
+            title: "Données collectées"
+            account_intro: "Lors de la création d'un compte, les données suivantes sont collectées :"
+            name: "Nom d'utilisateur"
+            email: "Adresse e-mail"
+            password: "Mot de passe (haché)"
+            content: "Dépenses et groupes créés par l'utilisateur"
+            tracker_intro: "Ce site n'utilise aucun cookie ni aucun outil de suivi publicitaire ou analytique."
+        retention:
+            title: "Durée de conservation"
+            content: "Les données sont conservées tant que le projet est présenté à des fins de démonstration. Vous pouvez demander la suppression de vos données à tout moment."
+        rights:
+            title: "Vos droits"
+            intro: "Conformément au RGPD (Règlement (UE) 2016/679), vous disposez des droits suivants :"
+            access: "Droit d'accès"
+            rectification: "Droit de rectification"
+            erasure: "Droit à l'effacement"
+            restriction: "Droit à la limitation du traitement"
+            portability: "Droit à la portabilité des données"
+            object: "Droit d'opposition"
+            contact: "Pour exercer l'un de ces droits, vous pouvez contacter l'adresse suivante :"
+            cnil: "Vous disposez également du droit d'introduire une réclamation auprès de la CNIL, l'autorité française chargée de la protection des données."

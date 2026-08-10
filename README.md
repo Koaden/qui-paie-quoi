@@ -31,3 +31,9 @@ You can use the fixture user account **Alice**:
 - email: `alice@test.com`
 - password: `password` 
 
+## Ownership
+
+This code is **not** the property of its contributors. It belongs to **KNP Labs**, as this repository is a training project made during an apprenticeship at KNP Labs.
+
+KNP Labs granted permission to use and present this code for **portfolio purposes only**. Any other use, redistribution, or commercial exploitation requires the prior written consent of KNP Labs.
+

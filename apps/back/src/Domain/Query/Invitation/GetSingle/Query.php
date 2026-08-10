@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\Query\Invitation\GetSingle;
 
-
 final readonly class Query
 {
     public function __construct(

@@ -22,8 +22,6 @@ final readonly class Handler
 
     public function __invoke(Input $input): Output
     {
-
-
         if (!($group = $this->memberCollection->findOneGroupById($input->group->id, $input->member))) {
             throw new GroupDoesntExist();
         }

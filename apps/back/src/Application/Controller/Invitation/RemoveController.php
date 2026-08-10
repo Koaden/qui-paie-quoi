@@ -9,6 +9,7 @@ use Application\MessageBus\CommandBus;
 use Application\MessageBus\QueryBus;
 use Domain\Exception\DomainException;
 use Domain\Query\Invitation\GetSingle\Query;
+use Domain\ReadModel\Invitation;
 use Domain\UseCase\Invitation\Remove\Input;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;

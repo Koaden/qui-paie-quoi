@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% set show_header = false %}
+
+{% block title %}- {{ 'legal.policy'|trans }}{% endblock %}
+
+{% block main %}
+    <div class="legal">
+        <h1>{{ 'legal.policy'|trans }}</h1>
+
+        <section class="legal__section">
+            <h2>{{ 'legal.privacy.controller.title'|trans }}</h2>
+            <p>{{ 'legal.privacy.controller.intro'|trans }}</p>
+            <ul>
+                <li>{{ 'legal.privacy.controller.name_label'|trans }} <strong>Gaël Quéméré</strong></li>
+                <li>{{ 'legal.privacy.controller.email_label'|trans }} <a href="mailto:gael.quemere@ik.me">gael.quemere@ik.me</a></li>
+            </ul>
+        </section>
+
+        <section class="legal__section">
+            <h2>{{ 'legal.privacy.purpose.title'|trans }}</h2>
+            <p>{{ 'legal.privacy.purpose.content'|trans }}</p>
+        </section>
+
+        <section class="legal__section">
+            <h2>{{ 'legal.privacy.data.title'|trans }}</h2>
+            <p>{{ 'legal.privacy.data.account_intro'|trans }}</p>
+            <ul>
+                <li>{{ 'legal.privacy.data.name'|trans }}</li>
+                <li>{{ 'legal.privacy.data.email'|trans }}</li>
+                <li>{{ 'legal.privacy.data.password'|trans }}</li>
+                <li>{{ 'legal.privacy.data.content'|trans }}</li>
+            </ul>
+            <p>{{ 'legal.privacy.data.tracker_intro'|trans }}</p>
+        </section>
+
+        <section class="legal__section">
+            <h2>{{ 'legal.privacy.retention.title'|trans }}</h2>
+            <p>{{ 'legal.privacy.retention.content'|trans }}</p>
+        </section>
+
+        <section class="legal__section">
+            <h2>{{ 'legal.privacy.rights.title'|trans }}</h2>
+            <p>{{ 'legal.privacy.rights.intro'|trans }}</p>
+            <ul>
+                <li>{{ 'legal.privacy.rights.access'|trans }}</li>
+                <li>{{ 'legal.privacy.rights.rectification'|trans }}</li>
+                <li>{{ 'legal.privacy.rights.erasure'|trans }}</li>
+                <li>{{ 'legal.privacy.rights.restriction'|trans }}</li>
+                <li>{{ 'legal.privacy.rights.portability'|trans }}</li>
+                <li>{{ 'legal.privacy.rights.object'|trans }}</li>
+            </ul>
+            <p>{{ 'legal.privacy.rights.contact'|trans }} <a href="mailto:gael.quemere@ik.me">gael.quemere@ik.me</a></p>
+            <p>{{ 'legal.privacy.rights.cnil'|trans }}</p>
+        </section>
+    </div>
+{% endblock %}

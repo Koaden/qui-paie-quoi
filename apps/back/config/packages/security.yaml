@@ -26,6 +26,8 @@ security:
         - { path: '^(/[a-z]{2})?/login', roles:  }
         - { path: '^(/[a-z]{2})?/register', roles:  }
         - { path: '^(/[a-z]{2})?/logout', roles:  }
+        - { path: '^(/[a-z]{2})?/mentions-legales', roles:  }
+        - { path: '^(/[a-z]{2})?/politique-de-confidentialite', roles:  }
         - { path: '^/', roles: ROLE_USER }
 
 

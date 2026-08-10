@@ -53,7 +53,7 @@ class InviteMember implements VoterInterface
             $group = Group::fromModel($group);
         }
 
-        if ($member->getRoleFromGroup($group) !== GroupRole::OWNER) {
+        if (GroupRole::OWNER !== $member->getRoleFromGroup($group)) {
             return self::ACCESS_DENIED;
         }
 

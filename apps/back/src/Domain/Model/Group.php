@@ -166,7 +166,7 @@ class Group
         return $this->invitations;
     }
 
-    public function getInvitationFromParticipant(Participant $participant) : ?Invitation
+    public function getInvitationFromParticipant(Participant $participant): ?Invitation
     {
         foreach ($this->invitations as $invitation) {
             if ($invitation->getParticipant() === $participant) {

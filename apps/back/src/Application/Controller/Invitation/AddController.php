@@ -59,10 +59,10 @@ class AddController extends BaseController
         }
 
         $input = new Input(
-                $this->getCurrentMember(),
-                $group,
-                $participant,
-            );
+            $this->getCurrentMember(),
+            $group,
+            $participant,
+        );
 
         try {
             /** @var Output */

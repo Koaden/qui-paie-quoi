@@ -63,13 +63,12 @@ class Invitation
 
     private function shortCode(string $data, int $length = 4): string
     {
-        $hash = hash('xxh3', $data, true);
-        $num = unpack('J', substr($hash, 0, 8))[1];
+        $num = crc32($data);
 
         $base = strlen(self::ALPHABET);
         $code = '';
 
-        for ($i = 0; $i < $length; $i++) {
+        for ($i = 0; $i < $length; ++$i) {
             $code .= self::ALPHABET[$num % $base];
             $num = intdiv($num, $base);
         }
